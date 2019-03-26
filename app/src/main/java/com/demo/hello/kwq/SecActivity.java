@@ -19,11 +19,21 @@ public class SecActivity extends AppCompatActivity implements View.OnClickListen
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sec);
-
+//      TextView out = findViewById(R.id.txtout);
         out=findViewById(R.id.txtout);
         edit=findViewById(R.id.inp);
         Button btn=findViewById(R.id.btn);
         btn.setOnClickListener(this);
+//        btn.setOnClickListener(new View.OnClickListener(){
+//            @Override
+//            public void onClick(View v) {
+//                Log.i("main","onClick msg...");
+//                String str=edit.getText().toString();
+//                DecimalFormat df=new DecimalFormat("#.00");
+//                float c=Float.parseFloat(str);
+//                out.setText("华氏温度为："+df.format(c*9/5+32)+"F");
+//            }
+//        });
 
     }
 
@@ -33,10 +43,7 @@ public class SecActivity extends AppCompatActivity implements View.OnClickListen
         String str=edit.getText().toString();
         DecimalFormat df=new DecimalFormat("#.00");
         float c=Float.parseFloat(str);
-        System.out.println(c);
         out.setText("华氏温度为："+df.format(c*9/5+32)+"F");
-
-
     }
 
 //    public void click(View v){
