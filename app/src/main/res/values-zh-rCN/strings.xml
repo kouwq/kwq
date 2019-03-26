@@ -2,4 +2,7 @@
 <resources>
     <string name="app_name">寇文强</string>
     <string name="str1">欢迎</string>
+    <string name="txt_hint">请输入摄氏度：(仅限整数）</string>
+    <string name="btn_label">转化为华氏温度</string>
+    <string name="text_view">结果</string>
 </resources>
