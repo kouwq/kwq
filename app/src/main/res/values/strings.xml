@@ -4,5 +4,9 @@
     <string name="text_view">Result</string>
     <string name="btn_label">turn to F</string>
     <string name="txt_hint">Please input temp:(only number)</string>
+    <string name="btn_dollar_label" translatable="false">Dollar</string>
+    <string name="btn_euro_label" translatable="false">Euro</string>
+    <string name="btn_won_label" translatable="false">Won</string>
+    <string name="rmb_hint" translatable="false">Input RMB:</string>
 
 </resources>
