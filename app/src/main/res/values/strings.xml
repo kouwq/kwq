@@ -4,5 +4,5 @@
     <string name="text_view">Result</string>
     <string name="btn_label">turn to F</string>
     <string name="txt_hint">Please input temp:(only number)</string>
-    <string name="score">TEAM A</string>
+
 </resources>

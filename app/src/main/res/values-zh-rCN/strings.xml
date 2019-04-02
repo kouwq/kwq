@@ -5,5 +5,4 @@
     <string name="txt_hint">请输入摄氏度：(仅限整数）</string>
     <string name="btn_label">转化为华氏温度</string>
     <string name="text_view">结果</string>
-    <string name="score">TEAM A</string>
 </resources>
