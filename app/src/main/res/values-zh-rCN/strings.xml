@@ -5,4 +5,8 @@
     <string name="txt_hint">请输入摄氏度：(仅限整数）</string>
     <string name="btn_label">转化为华氏温度</string>
     <string name="text_view">结果</string>
+    <string name="rmb_hint">请输入人民币</string>
+    <string name="btn_won_label" translatable="false">韩元</string>
+    <string name="btn_euro_label" translatable="false">欧元</string>
+    <string name="btn_dollar_label" translatable="false">美元</string>
 </resources>

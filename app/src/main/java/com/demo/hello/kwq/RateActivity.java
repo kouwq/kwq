@@ -1,7 +1,10 @@
 package com.demo.hello.kwq;
 
-import android.support.v7.app.AppCompatActivity;
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -45,4 +48,14 @@ public class RateActivity extends AppCompatActivity {
         show.setText(String.valueOf(df.format(val)));
 //        show.setText("" + val);
     }
+
+    public void openOne(View v){
+        //打开一个Activity
+        Log.i("open","Open One page:");
+        Intent hello=new Intent(this,SecActivity.class);
+        Intent web = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.baidu.com/"));
+        Intent call = new Intent(Intent.ACTION_DIAL,Uri.parse("tel:13550585364"));
+        startActivity(call);
+    }
+
 }

@@ -25,7 +25,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="@string/str1"
+        android:text=""
         android:textSize="35sp" />
 
     <Button
@@ -48,4 +48,11 @@
         android:layout_height="wrap_content"
         android:onClick="onClick"
         android:text="@string/btn_won_label" />
+
+    <Button
+        android:id="@+id/btn_open"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="openOne"
+        android:text="@string/str1" />
 </LinearLayout>
