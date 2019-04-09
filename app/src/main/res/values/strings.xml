@@ -5,8 +5,11 @@
     <string name="btn_label">turn to F</string>
     <string name="txt_hint">Please input temp:(only number)</string>
     <string name="btn_dollar_label">Dollar</string>
-    <string name="btn_euro_label">Euro</string>
+    <string name="btn_euro_label" translatable="false">Euro</string>
     <string name="btn_won_label">Won</string>
     <string name="rmb_hint">Input RMB:</string>
+    <string name="btn_opencfg_label" translatable="false">config</string>
+    <string name="btn_save_label">save</string>
+    <string name="menu_set_label">Setting</string>
 
 </resources>
