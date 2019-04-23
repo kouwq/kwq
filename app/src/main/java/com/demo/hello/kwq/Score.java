@@ -9,13 +9,13 @@ import android.widget.TextView;
 
 public class Score extends AppCompatActivity implements View.OnClickListener {
     TextView score_a, score_b;
-    private final String TAG="Score";
+    private final String TAG = "Score";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_score);
-        Log.i(TAG,"onCreate():");
+        Log.i(TAG, "onCreate():");
         score_a = findViewById(R.id.scoreA);
         score_b = findViewById(R.id.scoreB);
         Button btn1 = findViewById(R.id.btn_1);
@@ -39,10 +39,10 @@ public class Score extends AppCompatActivity implements View.OnClickListener {
         super.onSaveInstanceState(outState);
         String scorea = score_a.getText().toString();
         String scoreb = score_b.getText().toString();
-        Log.i(TAG,"onSaveInstanceState():");
 
-        outState.putString("teama_score",scorea);
-        outState.putString("teamb_score",scoreb);
+        Log.i(TAG, "onSaveInstanceState():");
+        outState.putString("teama_score", scorea);
+        outState.putString("teamb_score", scoreb);
     }
 
     @Override
@@ -51,7 +51,7 @@ public class Score extends AppCompatActivity implements View.OnClickListener {
         String scorea = savedInstanceState.getString("teama_score");
         String scoreb = savedInstanceState.getString("teamb_score");
 
-        Log.i(TAG,"onRestoreInstanceState():");
+        Log.i(TAG, "onRestoreInstanceState():");
         score_a.setText(scorea);
         score_b.setText(scoreb);
     }
@@ -59,37 +59,37 @@ public class Score extends AppCompatActivity implements View.OnClickListener {
     @Override
     protected void onStart() {
         super.onStart();
-        Log.i(TAG,"onStart():");
+        Log.i(TAG, "onStart():");
     }
 
     @Override
     protected void onResume() {
         super.onResume();
-        Log.i(TAG,"onResume():");
+        Log.i(TAG, "onResume():");
     }
 
     @Override
     protected void onRestart() {
         super.onRestart();
-        Log.i(TAG,"onRestart():");
+        Log.i(TAG, "onRestart():");
     }
 
     @Override
     protected void onPause() {
         super.onPause();
-        Log.i(TAG,"onPause():");
+        Log.i(TAG, "onPause():");
     }
 
     @Override
     protected void onStop() {
         super.onStop();
-        Log.i(TAG,"onStop():");
+        Log.i(TAG, "onStop():");
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        Log.i(TAG,"onDestroy():");
+        Log.i(TAG, "onDestroy():");
     }
 
     @Override
