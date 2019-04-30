@@ -11,4 +11,5 @@
     <string name="btn_dollar_label">美元</string>
     <string name="btn_save_label">保存</string>
     <string name="menu_set_label">设置</string>
+    <string name="label_open_list">OpenList</string>
 </resources>
