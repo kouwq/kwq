@@ -19,7 +19,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MyListActivity extends AppCompatActivity implements Runnable{
+public class MyListActivity extends AppCompatActivity implements Runnable {
     final String TAG = "RateListActivity";
     Handler handler;
 
@@ -29,8 +29,8 @@ public class MyListActivity extends AppCompatActivity implements Runnable{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_list);
 
-        ListView listView=findViewById(R.id.mylist);
-        String data[] = {"111","22222"};
+        ListView listView = findViewById(R.id.mylist);
+        String data[] = {"111", "22222"};
 
         ListAdapter adapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, data);
         listView.setAdapter(adapter);
@@ -42,7 +42,7 @@ public class MyListActivity extends AppCompatActivity implements Runnable{
             @Override
             public void handleMessage(Message msg) {
                 if (msg.what == 8) {
-                    ListView listView=findViewById(R.id.mylist);
+                    ListView listView = findViewById(R.id.mylist);
                     List<String> list2 = (List<String>) msg.obj;
                     ListAdapter adapter = new ArrayAdapter<String>(MyListActivity.this, android.R.layout.simple_list_item_1, list2);
                     listView.setAdapter(adapter);
