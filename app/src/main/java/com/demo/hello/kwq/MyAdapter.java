@@ -14,7 +14,7 @@ import java.util.Map;
 public class MyAdapter extends ArrayAdapter {
     private static final String TAG = "MyAdapter";
 
-    public MyAdapter( Context context, int resource, ArrayList<HashMap<String,String>> list) {
+    public MyAdapter(Context context, int resource, ArrayList<HashMap<String, String>> list) {
         super(context, resource, list);
     }
 
@@ -29,8 +29,8 @@ public class MyAdapter extends ArrayAdapter {
         TextView title = itemView.findViewById(R.id.itemTitle);
         TextView detail = itemView.findViewById(R.id.itemDetail);
 
-        title.setText("Title:"+map.get("ItemTitle"));
-        detail.setText("Detail:"+map.get("ItemDetail"));
+        title.setText("Title:" + map.get("ItemTitle"));
+        detail.setText("Detail:" + map.get("ItemDetail"));
         return itemView;
     }
 }
