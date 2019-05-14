@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="app_name">寇文强</string>
+    <string name="app_name">课程app</string>
     <string name="str1">欢迎</string>
     <string name="txt_hint">请输入摄氏度：(仅限整数）</string>
     <string name="btn_label">转化为华氏温度</string>
@@ -11,5 +11,5 @@
     <string name="btn_dollar_label">美元</string>
     <string name="btn_save_label">保存</string>
     <string name="menu_set_label">设置</string>
-    <string name="label_open_list">OpenList</string>
+    <string name="label_open_list">打开列表</string>
 </resources>

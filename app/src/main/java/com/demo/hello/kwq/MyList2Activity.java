@@ -1,7 +1,9 @@
 package com.demo.hello.kwq;
 
 import android.annotation.SuppressLint;
+import android.app.AlertDialog;
 import android.app.ListActivity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
@@ -22,9 +24,10 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class MyList2Activity extends ListActivity implements Runnable, AdapterView.OnItemClickListener {
+public class MyList2Activity extends ListActivity implements Runnable, AdapterView.OnItemClickListener, AdapterView.OnItemLongClickListener {
     Handler handler;
-    private ArrayList<HashMap<String, String>> listItems;//存放文字、图片信息
+    //    private ArrayList<HashMap<String, String>> listItems;//存放文字、图片信息
+    private List<HashMap<String, String>> listItems;//存放文字、图片信息
     private SimpleAdapter listItemAdapter;//适配器
     private static final String TAG = "mylist2";
 
@@ -45,8 +48,9 @@ public class MyList2Activity extends ListActivity implements Runnable, AdapterVi
             @Override
             public void handleMessage(Message msg) {
                 if (msg.what == 9) {
-                    List<HashMap<String, String>> list2 = (List<HashMap<String, String>>) msg.obj;
-                    listItemAdapter = new SimpleAdapter(MyList2Activity.this, list2,//listItems数据源
+//                    List<HashMap<String, String>> listItems = (List<HashMap<String, String>>) msg.obj;
+                    listItems = (List<HashMap<String, String>>) msg.obj;
+                    listItemAdapter = new SimpleAdapter(MyList2Activity.this, listItems,//listItems数据源
                             R.layout.list_item,//litItem的xml布局实现
                             new String[]{"ItemTitle", "ItemDetail"},
                             new int[]{R.id.itemTitle, R.id.itemDetail}
@@ -57,6 +61,7 @@ public class MyList2Activity extends ListActivity implements Runnable, AdapterVi
             }
         };
         getListView().setOnItemClickListener(this);
+        getListView().setOnItemLongClickListener(this);
     }
 
     private void initListView() {
@@ -64,7 +69,8 @@ public class MyList2Activity extends ListActivity implements Runnable, AdapterVi
         for (int i = 0; i < 10; i++) {
             HashMap<String, String> map = new HashMap<String, String>();
             map.put("ItemTitle", "Rate: " + i);//标题文字
-            map.put("ItemDetail", "detail" + i);//详情讲述
+//            map.put("ItemDetail", "detail" + i);//详情讲述
+            map.put("ItemDetail", "" + i);//详情讲述
             listItems.add(map);
         }
         //生成适配器的Item和动态数组对应的元素
@@ -134,8 +140,30 @@ public class MyList2Activity extends ListActivity implements Runnable, AdapterVi
         //打开新的页面，传入参数
         Intent rateCalc = new Intent(this, RateCalcActivity.class);
         rateCalc.putExtra("title", titleStr);
-        rateCalc.putExtra("rate", Float.parseFloat(detailStr) / 100f);
+        rateCalc.putExtra("rate", Float.parseFloat(detailStr));
         startActivity(rateCalc);
 
+    }
+
+    @Override
+    public boolean onItemLongClick(AdapterView<?> parent, View view, final int position, long id) {
+        Log.i(TAG, "onItemLongClick:长按position=" + position);
+        //删除操作
+//        listItems.remove(position);
+//        listItemAdapter.notifyDataSetChanged();
+        //
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("提示").setMessage("请确定是否删除当前数据").setPositiveButton("是", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Log.i(TAG, "onClick:对话框事件处理");
+                listItems.remove(position);
+                listItemAdapter.notifyDataSetChanged();
+            }
+        })
+                .setNegativeButton("否", null);
+        builder.create().show();
+        Log.i(TAG, "onItemLongClick:size=" + listItems.size());
+        return true;
     }
 }

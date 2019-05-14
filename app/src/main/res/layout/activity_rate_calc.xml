@@ -19,6 +19,7 @@
         android:id="@+id/inp2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:autofillHints="0"
         android:hint="@string/rmb_hint"
         android:inputType="numberDecimal" />
 
