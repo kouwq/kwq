@@ -118,7 +118,7 @@ public class MyList2Activity extends ListActivity implements Runnable, AdapterVi
 
 
     @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+    public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
         Log.i(TAG, "onItemClick: parent=" + parent);
         Log.i(TAG, "onItemClick: view=" + view);
         Log.i(TAG, "onItemClick: position=" + position);
@@ -138,11 +138,22 @@ public class MyList2Activity extends ListActivity implements Runnable, AdapterVi
         Log.i(TAG, "onItemClick: detail2=" + detail2);
 
         //打开新的页面，传入参数
-        Intent rateCalc = new Intent(this, RateCalcActivity.class);
-        rateCalc.putExtra("title", titleStr);
-        rateCalc.putExtra("rate", Float.parseFloat(detailStr));
-        startActivity(rateCalc);
-
+//        Intent rateCalc = new Intent(this, RateCalcActivity.class);
+//        rateCalc.putExtra("title", titleStr);
+//        rateCalc.putExtra("rate", Float.parseFloat(detailStr));
+//        startActivity(rateCalc);
+        //弹出新页面
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("提示").setMessage("请确定是否删除当前数据").setPositiveButton("是", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Log.i(TAG, "onClick:对话框事件处理");
+                listItems.remove(position);
+                listItemAdapter.notifyDataSetChanged();
+            }
+        })
+                .setNegativeButton("否", null);
+        builder.create().show();
     }
 
     @Override
@@ -151,7 +162,7 @@ public class MyList2Activity extends ListActivity implements Runnable, AdapterVi
         //删除操作
 //        listItems.remove(position);
 //        listItemAdapter.notifyDataSetChanged();
-        //
+        //弹出删除确认窗口
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("提示").setMessage("请确定是否删除当前数据").setPositiveButton("是", new DialogInterface.OnClickListener() {
             @Override
