@@ -12,5 +12,8 @@
     <string name="btn_save_label">save</string>
     <string name="menu_set_label">Setting</string>
     <string name="label_open_list">OpenList</string>
+    <string name="rdo_home_label">Home</string>
+    <string name="rdo_func_label">Func</string>
+    <string name="rdo_setting_label">Setting</string>
 
 </resources>
