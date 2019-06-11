@@ -13,6 +13,6 @@
     <string name="menu_set_label">设置</string>
     <string name="label_open_list">打开列表</string>
     <string name="rdo_home_label">主页面</string>
-    <string name="rdo_func_label">Func</string>
-    <string name="rdo_setting_label">Setting</string>
+    <string name="rdo_func_label">功能</string>
+    <string name="rdo_setting_label">设置</string>
 </resources>

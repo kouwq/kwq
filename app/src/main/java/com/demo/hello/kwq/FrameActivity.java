@@ -6,8 +6,6 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.util.Log;
-import android.view.Menu;
-import android.view.Window;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
@@ -21,7 +19,7 @@ public class FrameActivity extends FragmentActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);
+//        requestWindowFeature(Window.FEATURE_NO_TITLE);
         setContentView(R.layout.activity_fragment);
         mFragments = new Fragment[3];
         fragmentManager = getSupportFragmentManager();
