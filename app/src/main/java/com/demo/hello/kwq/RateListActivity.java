@@ -119,7 +119,7 @@ public class RateListActivity extends ListActivity implements Runnable {
             SharedPreferences sp = getSharedPreferences("myrate", Context.MODE_PRIVATE);
             SharedPreferences.Editor edit = sp.edit();
             edit.putString(DATE_SP_KEY, curDateStr);
-            edit.commit();
+            edit.apply();
             Log.i("run", "更新日期结束：" + curDateStr);
 
         }

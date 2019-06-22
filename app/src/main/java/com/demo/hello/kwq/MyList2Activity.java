@@ -8,9 +8,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
@@ -126,7 +130,7 @@ public class MyList2Activity extends ListActivity implements Runnable, AdapterVi
 
         HashMap<String, String> map = (HashMap<String, String>) getListView().getItemAtPosition(position);
         String titleStr = map.get("ItemTitle");
-        String detailStr = map.get("ItemDetail");
+        final String detailStr = map.get("ItemDetail");
         Log.i(TAG, "onItemClick: titleStr=" + titleStr);
         Log.i(TAG, "onItemClick: detailStr=" + detailStr);
 
@@ -143,17 +147,37 @@ public class MyList2Activity extends ListActivity implements Runnable, AdapterVi
 //        rateCalc.putExtra("rate", Float.parseFloat(detailStr));
 //        startActivity(rateCalc);
         //弹出新页面
+        LayoutInflater inflater = LayoutInflater.from(this);
+        final View view1=inflater.inflate(R.layout.activity_rate_calc,null);
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        builder.setTitle("提示").setMessage("请确定是否删除当前数据").setPositiveButton("是", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                Log.i(TAG, "onClick:对话框事件处理");
-                listItems.remove(position);
-                listItemAdapter.notifyDataSetChanged();
-            }
-        })
-                .setNegativeButton("否", null);
+        builder.setView(view1);
+        builder.setCancelable(true);
         builder.create().show();
+        ((TextView) view1.findViewById(R.id.title2)).setText(titleStr);
+        EditText inp2 = view1.findViewById(R.id.inp2);
+        inp2.addTextChangedListener(new TextWatcher() {
+
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+                TextView show = (TextView) view1.findViewById(R.id.show2);
+                if (s.length() > 0) {
+                    float val = Float.parseFloat(s.toString());
+                    show.setText(val + "RMB==>" + (100 * val / Float.parseFloat(detailStr) ));
+                } else {
+                    show.setText("");
+                }
+            }
+        });
     }
 
     @Override
